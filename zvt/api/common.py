@@ -8,10 +8,9 @@ from sqlalchemy import exists, and_
 
 from zvt.core import IntervalLevel
 from zvt.core.api import decode_entity_id
-from zvt.core.utils.pd_utils import pd_is_not_null
-from zvt.core.utils.time_utils import to_pd_timestamp, now_pd_timestamp
-from zvt.core.utils.time_utils import to_time_str, TIME_FORMAT_DAY, TIME_FORMAT_ISO8601
 from zvt.domain import *
+from zvt.utils.pd_utils import pd_is_not_null
+from zvt.utils.time_utils import to_pd_timestamp, now_pd_timestamp, to_time_str, TIME_FORMAT_DAY, TIME_FORMAT_ISO8601
 
 
 def get_kdata_schema(entity_type: str,

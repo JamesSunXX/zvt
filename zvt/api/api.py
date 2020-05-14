@@ -61,16 +61,16 @@ def get_cross_market_summary(
                     order=order, limit=limit,index=index,time_field=time_field)
 
 
-from zvt.domain import BlockMoneyFlow
+from zvt.domain import StockTradeDay
 
-def get_index_money_flow(
+def get_stock_trade_day(
         ids: List[str] = None,
         entity_ids: List[str] = None,
         entity_id: str = None,
         codes: List[str] = None,
         code: str = None,
         level: Union[IntervalLevel, str] = None,
-        provider: str = 'sina',
+        provider: str = 'joinquant',
         columns: List = None,
         return_type: str = 'df',
         start_timestamp: Union[pd.Timestamp, str] = None,
@@ -81,10 +81,10 @@ def get_index_money_flow(
         limit: int = None,
         index: Union[str, list] = 'timestamp',
         time_field: str = 'timestamp'):
-    return get_data(data_schema=BlockMoneyFlow, ids=ids, entity_ids=entity_ids, entity_id=entity_id, codes=codes,
+    return get_data(data_schema=StockTradeDay, ids=ids, entity_ids=entity_ids, entity_id=entity_id, codes=codes,
                     code=code, level=level, provider=provider, columns=columns, return_type=return_type,
                     start_timestamp=start_timestamp, end_timestamp=end_timestamp, filters=filters, session=session,
-                    order=order, limit=limit, index=index, time_field=time_field)
+                    order=order, limit=limit,index=index,time_field=time_field)
 
 
 from zvt.domain import DragonAndTiger
@@ -295,16 +295,16 @@ def get_top_ten_holder(
                     order=order, limit=limit,index=index,time_field=time_field)
 
 
-from zvt.domain import Stock
+from zvt.domain import BlockMoneyFlow
 
-def get_stock(
+def get_block_money_flow(
         ids: List[str] = None,
         entity_ids: List[str] = None,
         entity_id: str = None,
         codes: List[str] = None,
         code: str = None,
         level: Union[IntervalLevel, str] = None,
-        provider: str = 'eastmoney',
+        provider: str = 'sina',
         columns: List = None,
         return_type: str = 'df',
         start_timestamp: Union[pd.Timestamp, str] = None,
@@ -315,7 +315,7 @@ def get_stock(
         limit: int = None,
         index: Union[str, list] = 'timestamp',
         time_field: str = 'timestamp'):
-    return get_data(data_schema=Stock, ids=ids, entity_ids=entity_ids, entity_id=entity_id, codes=codes,
+    return get_data(data_schema=BlockMoneyFlow, ids=ids, entity_ids=entity_ids, entity_id=entity_id, codes=codes,
                     code=code, level=level, provider=provider, columns=columns, return_type=return_type,
                     start_timestamp=start_timestamp, end_timestamp=end_timestamp, filters=filters, session=session,
                     order=order, limit=limit,index=index,time_field=time_field)
@@ -550,32 +550,6 @@ def get_institutional_investor_holder(
         index: Union[str, list] = 'timestamp',
         time_field: str = 'timestamp'):
     return get_data(data_schema=InstitutionalInvestorHolder, ids=ids, entity_ids=entity_ids, entity_id=entity_id, codes=codes,
-                    code=code, level=level, provider=provider, columns=columns, return_type=return_type,
-                    start_timestamp=start_timestamp, end_timestamp=end_timestamp, filters=filters, session=session,
-                    order=order, limit=limit,index=index,time_field=time_field)
-
-
-from zvt.domain import Index
-
-def get_index(
-        ids: List[str] = None,
-        entity_ids: List[str] = None,
-        entity_id: str = None,
-        codes: List[str] = None,
-        code: str = None,
-        level: Union[IntervalLevel, str] = None,
-        provider: str = 'exchange',
-        columns: List = None,
-        return_type: str = 'df',
-        start_timestamp: Union[pd.Timestamp, str] = None,
-        end_timestamp: Union[pd.Timestamp, str] = None,
-        filters: List = None,
-        session: Session = None,
-        order=None,
-        limit: int = None,
-        index: Union[str, list] = 'timestamp',
-        time_field: str = 'timestamp'):
-    return get_data(data_schema=Index, ids=ids, entity_ids=entity_ids, entity_id=entity_id, codes=codes,
                     code=code, level=level, provider=provider, columns=columns, return_type=return_type,
                     start_timestamp=start_timestamp, end_timestamp=end_timestamp, filters=filters, session=session,
                     order=order, limit=limit,index=index,time_field=time_field)
